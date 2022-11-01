@@ -1,0 +1,31 @@
+.form_header{
+    border : none;
+    border-bottom: 1px solid rgba(0, 0, 0,0.5); 
+}
+
+.form-block{
+    display:flex;
+    flex-direction: column;
+    width: 100%;
+    row-gap: 16px;
+    align-items: center;
+}
+
+.input-block{
+    width:100%;
+    column-gap: 8px;
+    flex-direction: column;
+    /* align-items: center; */
+}
+
+.box{
+    box-sizing: border-box;
+}
+
+.submit{
+    width:160px;
+}
+
+.color-red{
+    color:red;
+}

@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% block title %}
+invoice
+{% endblock title %}
+{% block css %}
+    
+{% endblock css %}
+{% block body %}        
+<div class="d-flex flex-row justify-content-between m-0 p-4 gap-3 printing-content" style="width:100%;">
+    <div class="d-flex flex-column col-4 align-content-center justify-content-center" style="background-color:rgba(141, 140, 140, 0.414); padding:32px;padding-bottom: 16px;">
+        <embed
+        src="/static/provision_invoice.txt"   
+        frameBorder="0"
+        scrolling="auto"
+        height="700px"
+        class="col-12">        
+        </embed>
+    <div class="d-flex flex-row gap-2">
+        <a href="/static/invoice.pdf" download="invoice.pdf" style="text-decoration:none;"><button class="btn btn-primary">Download Invoice</button></a>
+    <a style="text-decoration:none;" onclick="funct()"><button class="btn btn-primary">Print</button></a>
+    </div>
+    </div>
+    <div class="d-flex flex-column col-8">
+        <div class="d-flex flex-row justify-content-between">
+            <div class="card d-flex flex-row justify-content-between gap-5" style="width: 100%;border:none;">
+                <img src="{{carlink}}" class="card-img-top d-block" alt="..." style="width:300px;height:auto;">
+                <div class="card-body">
+                  <h5 class="card-title">Car Name : {{car.carname}}</h5>
+                  <p class="card-text">Capacity : {{car.carcapacity}}</p>
+                  <p class="card-text">Type : {{car.cartype}}</p>
+                  <p class="card-text">Cost per km : {{car.carprice}}</p>
+                </div>
+              </div>
+        </div>
+        <hr>
+        <div class="container">
+            <h1 class="">Instrunctions</h1>
+            <ul>
+                <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam non lacus neque. Sed eget risus nisl. Mauris ligula diam, ultrices in purus vel, euismod sagittis justo.</li>
+                <li>Vestibulum aliquet, magna sit amet mollis iaculis, metus diam porttitor ipsum, ultricies tempus lacus nunc id arcu. Donec commodo ante ac laoreet tristique.</li>
+                <li>Phasellus neque augue, pretium sed neque in, mattis cursus ante. Pellentesque condimentum, turpis at gravida sodales, sem eros dictum velit, eu tempus risus nulla ac justo. Morbi nisi nibh, euismod non aliquet eu, viverra et ex</li>
+                <li>Donec eu maximus arcu. Maecenas vitae lacinia lectus, vitae ultricies nulla. Nulla nec massa nec libero pulvinar vehicula. Vivamus at tempor ex, id mattis ligula.</li>
+                <li>Pellentesque accumsan ipsum in magna luctus, ac accumsan turpis tempus. Mauris a imperdiet neque, sit amet euismod ipsum. Donec sit amet hendrerit lectus.</li>
+                <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut tempor quis felis id feugiat. Phasellus vel commodo ex. Donec et tempor arcu. Etiam sit amet accumsan ligula.</li>
+                <li>Integer sit amet mauris ac sapien fermentum tempus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nam tincidunt, orci ut euismod ornare, mi sapien laoreet lectus, a feugiat dui lacus at ex. Cras eleifend mi ut mi fringilla rutrum. Integer non turpis vel sem tincidunt faucibus. </li>
+            </ul>            
+        </div>
+    </div>
+</div>
+<script>
+    let doc = document.querySelector('.printing-content')
+    function funct(){
+        window.print()
+    }
+</script>
+{% endblock body %}     

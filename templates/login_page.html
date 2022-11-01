@@ -6,23 +6,34 @@ Login
 <link rel="stylesheet" href="{{ url_for('static', filename='css/login_page.css') }}">
 {% endblock css %}
 {% block body %}
-<div class="mainBlock d-flex flex-row my-5 mx-5 justify-content-between">
-    <div class="col-lg-8 d-none d-lg-block d-md-block">
+<div class="mainBlock d-flex flex-row my-5 mx-5 justify-content-between gap-5">
+    <div class="d-none d-lg-block w-75">
+        <img src="/static/images/ST_Desktop_1_FG.png" class="w-100">
 
     </div>
-    <div class="col-lg-4 col-md-12 shadow border login-container">
-        <form class="d-flex flex-column justify-content-center align-items-center">
+    <div class="col-sm-12 col-md-12 shadow border login-container col-lg-4">
+        <form class="d-flex flex-column justify-content-center align-items-center" action="/login" method="POST">
             <div class="mb-3 w-100">
                 <label for="exampleInputEmail1" class="form-label">Email address</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email">
                 <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
             </div>
             <div class="mb-3 w-100">
                 <label for="exampleInputPassword1" class="form-label">Password</label>
-                <input type="password" class="form-control" id="exampleInputPassword1">
+                <input type="password" class="form-control" id="exampleInputPassword1" name="password">
+                {% if password !=None %}
+
+                    <p class="text-opacity-75 text-decoration-none font-size-sm color-red">{{password}}</p>
+                    
+                {% endif %}
                 <a href="/" class="text-opacity-75 text-decoration-none font-size-sm">Forgot Password?</a>
             </div>
             <button type="submit" class="btn btn-primary btn-md d-block w-100">Log in</button>
+            {% if login != None %}
+                
+                <p class="text-opacity-75 text-decoration-none font-size-sm color-red">{{login}}</p>
+                
+            {% endif %}
         </form>
         <div class="line container-fluid d-flex flex-row align-items-center justify-content-center text-center my-4 p-0">
             <div class="col-5 h-1">
@@ -35,7 +46,7 @@ Login
                 
             </div>
         </div>
-        <button class="btn btn-outline-success btn-md d-block w-100">Create an Account</button>
+        <a href='/registration' class="text-decoration-none"><button class="btn btn-outline-success btn-md d-block w-100">Create an Account </button></a>
     </div>
 </div>
 

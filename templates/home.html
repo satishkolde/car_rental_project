@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% block title %}
+Home
+{% endblock title %}
+{% block css %}
+<link rel="stylesheet" href="/static/css/home.css">
+{% endblock css %}
+{% block body %}
+<form class="search_bar d-flex flex-row align-items-center justify-content-center" style="box-sizing:border-box;"
+    action="/booking" method="POST">
+    <div
+        class="block d-flex flex-lg-row flex-md-row align-items-center justify-content-center gap-1 flex-sm-column w-75 position-relative">
+        <div class="input-group d-flex flex-row justify-content-center">
+            <span class="input-group-text bg-body br-none"><i class="fa-solid fa-magnifying-glass"></i></span>
+            <div class="form-floating bl-none">
+                <input type="text" class="form-control bl-none" style="outline: none;box-shadow: none;" id="location"
+                    name="location" placeholder="Pick-up" required>
+                <label for="location" class="bl-none">Pick-up location</label>
+            </div>
+        </div>
+        <div class="form-floating">
+            <input type="date" class="form-control" id="jury-date" name="date" onfocus="this.showPicker()" required>
+            <label for="jury-date">Pick Up date</label>
+        </div>
+        <div class="form-floating">
+            <input type="time" class="form-control" id="jury-time" onfocus="this.showPicker()" required>
+            <label for="jury-time">Time</label>
+        </div>
+        <div class="form-floating">
+            <input type="number" class="form-control" name="jdays" onfocus="this.showPicker()" required>
+            <label for="dropoff-date">Renting days</label>
+        </div>
+        {% if user == None %}
+        <div class="submit d-flex flex-row align-items-center">
+            <button class="btn btn-primary" value="Search" style="height:58px;" onclick="func()">Submit</button>                
+        </div>
+        {% else %}
+        <div class="submit d-flex flex-row align-items-center">
+            <input type="submit" class="form-control btn btn-primary" value="Search" style="height:58px;">
+        </div>
+            
+        {% endif %}
+    </div>
+
+</form>
+<script>
+    function func(){
+        alert("please sign in")
+    }
+</script>
+{% endblock body %}

@@ -1,0 +1,34 @@
+﻿                                                        CAR RENTAL RECEIPT
+Date: 2022-10-31
+Receipt : 13040
+
+                                                                                                                      
+ 	
+                                                        Rental Company Info
+Company: Car Rental
+Representative: Pavan and Satish	
+Location: Bengaluru
+City/State/ZIP: Karnataka
+Phone: #########
+
+
+
+                                                        Vehicle Information
+Model: Maruti Suzuki Wagon 
+Capacity: 5
+Journey Date : 2022-10-29
+									  
+
+									    				     Renting Info
+
+							       				  Cost/km - 7      Renting Days - 5745
+														  Additional Costs - 1000
+									    					Subtotal - 4022500
+										 					   Tax - 160900.0
+
+		                            
+Total - 4183400.0
+Amout Paid - 4183400.0
+
+
+

@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block title %}
+    History
+{% endblock title %}
+{% block css %}
+    
+{% endblock css %}
+{% block body %}
+<h1 class="text-center mt-2">History</h1>
+<hr>
+<table class="table" >
+    <thead class="bg-light">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Journey Date</th>
+        <th scope="col">Price</th>
+        <th scope="col">Vehicle</th>
+        <th scope="col" style="text-align:end;margin-right: 16px;">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+        {% for item in data %}
+            <tr>
+                <th scope="row">{{loop.index}}</th>
+                <td>{{item.jdate}}</td>
+                <td>{{item.price}}</td>
+                <td>{{item.vehicle}}</td>
+                <td class="d-flex flex-row justify-content-end">
+                    <a href="/history/delete/{{item.jdate}}/{{item.price}}/{{item.vehicle}}" class="text-decoration-none"><button class="btn btn-dark d-block mx-2">Delete</button></a>
+                </td>
+            </tr>
+        {% endfor %}
+            
+    </tbody>
+</table>
+{% endblock body %}

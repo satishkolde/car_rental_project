@@ -1,0 +1,88 @@
+{% extends 'base.html' %}
+{% block title %}
+booking
+{% endblock title %}
+{% block css %}
+
+{% endblock css %}
+{% block body %}
+<div class="inform mx-5 my-2">
+  <form action="/booking" method="POST" class="d-flex flex-row p-1 gap-1 rounded-1">
+    <div class="input-group d-flex flex-row justify-content-center">
+      <span class="input-group-text bg-body br-none"><i class="fa-solid fa-magnifying-glass"></i></span>
+      <div class="form-floating bl-none">
+        <input type="text" class="form-control bl-none" style="outline: none;box-shadow: none;" id="location"
+          name="location" placeholder="Pick-up" required value="{{location}}">
+        <label for="location" class="bl-none">Pick-up location</label>
+      </div>
+    </div>
+    <div class="form-floating">
+      <input type="date" class="form-control" id="jury-date" name="date" onfocus="this.showPicker()" required value="{{date}}">
+      <label for="jury-date">Pick Up date</label>
+    </div>
+    <div class="form-floating">
+      <input type="number" class="form-control" name="jdays" value="{{day}}" onfocus="this.showPicker()" required>
+      <label for="dropoff-date">Renting days</label>
+    </div>
+    <div class="submit d-flex flex-row align-items-center">
+      <input type="submit" class="form-control btn btn-primary"  value="Search" style="height:58px;">
+    </div>    
+  </form>
+</div>
+
+<div class="booking-block d-flex mx-5 flex-row justify-content-center">
+  <form class="card p-2 col-2" method="POST" action="/filter" style="height:256px;">
+    <div class="form-check">
+      <input class="form-check-input" type="radio" name="cartype" value="SUV" id="SUV">
+      <label class="form-check-label" for="SUV">
+        SUV        
+      </label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="radio" name="cartype" value="HATCHBACK" id="HATCHBACK">
+      <label class="form-check-label" for="HATCHBACK">
+        HATCHBACK
+      </label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="radio" name="cartype" value="SEDAN" id="SEDAN">
+      <label class="form-check-label" for="SEDAN">
+        SEDAN
+      </label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="radio" name="cartype" value="MUV" id="MUV">
+      <label class="form-check-label" for="MUV">
+        MUV
+      </label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="radio" name="cartype" value="all" id="ALL">
+      <label class="form-check-label" for="ALL">
+        All
+      </label>
+    </div>
+    <input type="submit">
+  </form>
+  <div class="image d-flex flex-row flex-wrap gap-1 justify-content-evenly col-10">
+    {% for item in data %}
+    <a href="./invoice/{{item.carname}}/{{date}}/{{day}}" style="text-decoration:none;color:black;">
+      <div class="card col-lg-3 col-md-4" style="width:18rem;height:340px;">
+        <img src="{{item.carlink}}" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">{{item.carname}}</h5>
+          <p class="card-text">Car Capcity : {{item.carcapacity}}</p>
+          <p class="card-text">Price (per km):₹ {{item.carprice}}</p>
+        </div>
+      </div>
+    </a>
+    {% endfor %}
+  </div>
+
+</div>
+<script>
+  function promt() {
+    alert("booking is successful")
+  }
+</script>
+{% endblock body %}
