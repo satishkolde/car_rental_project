@@ -208,6 +208,6 @@ def del_user_data(date,price,carname):
     return redirect('/history')
 
 if __name__ == "__main__":
-    app.run(debug=False)
+    app.run(port=80,debug=False)
     
 
